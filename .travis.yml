@@ -1,0 +1,8 @@
+services:
+  - docker
+
+before_install:
+  - docker build -f Dockerfile.dev -t hlriffel/docker-react .
+
+script:
+  - docker run -e CI=true hlriffel/docker-react npm run test
